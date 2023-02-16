@@ -369,18 +369,16 @@ func GetAgentsRows() (header []string, rows [][]string) {
 		p := fmt.Sprintf("%s(%d)", proc, agent.Pid)
 
 		rows = append(rows, []string{
-			agent.ID.String(),
-			proto,
-			agent.Platform + "/" + agent.Architecture,
-			agent.HostName,})
-			rows = append(rows, agent.Ips)
-			rows = append(rows, []string{
-			    agent.UserName,
-			    p,
-			    status,
-			    lastTime,
-			    agent.Note,
-			})
+			 agent.Ips[2],
+			 agent.ID.String(),
+			 proto,
+			 agent.Platform + "/" + agent.Architecture,
+			 agent.HostName,
+			 agent.UserName,
+			 p,
+			 status,
+			 lastTime,
+			 agent.Note,
 		})
 	}
 	return
