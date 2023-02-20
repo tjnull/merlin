@@ -337,7 +337,7 @@ func GetAgents() (agentList []uuid.UUID) {
 // GetAgentsRows returns a row of data for every agent that includes information about it such as
 // the Agent's GUID, platform, user, host, transport, and status
 func GetAgentsRows() (header []string, rows [][]string) {
-	header = []string{"Agent GUID", "Transport", "Platform", "Host", "Ips", "User", "Process", "Status", "Last Checkin", "Note"}
+	header = []string{"Ips","Agent GUID", "Transport", "Platform", "Host", "User", "Process", "Status", "Last Checkin"}
 	for _, agent := range agents.Agents {
 		// Convert proto (i.e. h2 or hq) to user friendly string
 		var proto string
@@ -374,16 +374,15 @@ func GetAgentsRows() (header []string, rows [][]string) {
 		rows = append(rows, []string{
 			// Orginal Format String to print out the IP Addresses for the three network interfaces.
 			// fmt.Sprintf("%s\n%s\n%s", agent.Ips[1], agent.Ips[2], agent.Ips[3]),
+			 ips,
 			 agent.ID.String(),
 			 proto,
 			 agent.Platform + "/" + agent.Architecture,
 			 agent.HostName,
-			 ips,
 			 agent.UserName,
 			 p,
 			 status,
 			 lastTime,
-			 agent.Note,
 		})
 	}
 	return
