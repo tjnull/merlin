@@ -374,11 +374,11 @@ func GetAgentsRows() (header []string, rows [][]string) {
 		rows = append(rows, []string{
 			// Orginal Format String to print out the IP Addresses for the three network interfaces.
 			// fmt.Sprintf("%s\n%s\n%s", agent.Ips[1], agent.Ips[2], agent.Ips[3]),
-			 ips,
 			 agent.ID.String(),
 			 proto,
 			 agent.Platform + "/" + agent.Architecture,
 			 agent.HostName,
+			 ips,
 			 agent.UserName,
 			 p,
 			 status,
